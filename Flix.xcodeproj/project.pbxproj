@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F06FE12216D4BEB00E95ACA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06FE11216D4BEB00E95ACA /* DetailViewController.swift */; };
 		1F411B982164354F00ABFF79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F411B972164354F00ABFF79 /* AppDelegate.swift */; };
 		1F411B9D2164354F00ABFF79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F411B9B2164354F00ABFF79 /* Main.storyboard */; };
 		1F411B9F2164355100ABFF79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F411B9E2164355100ABFF79 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F06FE11216D4BEB00E95ACA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1F411B942164354F00ABFF79 /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F411B972164354F00ABFF79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F411B9C2164354F00ABFF79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,6 +54,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1F06FE0F216D47E200E95ACA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F06FE11216D4BEB00E95ACA /* DetailViewController.swift */,
+				1FF8CB2A2165326700A22508 /* NowPlayingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1F06FE10216D47F900E95ACA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1FD26363216658F000F745CC /* MovieCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1F411B8B2164354F00ABFF79 = {
 			isa = PBXGroup;
 			children = (
@@ -73,8 +92,8 @@
 		1F411B962164354F00ABFF79 /* Flix */ = {
 			isa = PBXGroup;
 			children = (
-				1FF8CB2A2165326700A22508 /* NowPlayingViewController.swift */,
-				1FD26363216658F000F745CC /* MovieCell.swift */,
+				1F06FE10216D47F900E95ACA /* Views */,
+				1F06FE0F216D47E200E95ACA /* ViewControllers */,
 				1F411B972164354F00ABFF79 /* AppDelegate.swift */,
 				1F411B9B2164354F00ABFF79 /* Main.storyboard */,
 				1F411B9E2164355100ABFF79 /* Assets.xcassets */,
@@ -220,6 +239,7 @@
 				1FF8CB2B2165326700A22508 /* NowPlayingViewController.swift in Sources */,
 				1F411B982164354F00ABFF79 /* AppDelegate.swift in Sources */,
 				1FD263642166590900F745CC /* MovieCell.swift in Sources */,
+				1F06FE12216D4BEB00E95ACA /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

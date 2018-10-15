@@ -12,7 +12,7 @@ import AlamofireImage
 //private let reuseIdentifier = "Cell"
 
 class NowPlayingViewController: UICollectionViewController, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -26,7 +26,7 @@ class NowPlayingViewController: UICollectionViewController, UITableViewDataSourc
         
         self.activityIndicator.startAnimating()
         
-         refreshControl = UIRefreshControl()
+        refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullTorefresh(_:)), for: .valueChanged)
         
         tableView.insertSubview(refreshControl, at: 0)
@@ -38,21 +38,21 @@ class NowPlayingViewController: UICollectionViewController, UITableViewDataSourc
     @objc func didPullTorefresh(_ refreshControl: UIRefreshControl){
         fetchMovies()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
-
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-//         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath as IndexPath) as! CustomTableCellTableViewCell
+        
+        //         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath as IndexPath) as! CustomTableCellTableViewCell
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath ) as! MovieCell
         
@@ -67,7 +67,7 @@ class NowPlayingViewController: UICollectionViewController, UITableViewDataSourc
             let posterBaseUrl = "http://image.tmdb.org/t/p/w500"
             let posterUrl = URL(string: posterBaseUrl + posterPath)
             cell.posterImageView.af_setImage(withURL: posterUrl!)
-           // cell.posterView.af_setImage(withURL: posterUrl!)
+            // cell.posterView.af_setImage(withURL: posterUrl!)
         }
         else {
             // No poster image. Can either set to nil (no image) or a default movie poster image
@@ -80,7 +80,16 @@ class NowPlayingViewController: UICollectionViewController, UITableViewDataSourc
         
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        if let indexpath = tableView.indexPath(for: cell){
+            let movie = movies[indexpath.row]
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.movie = movie
+        }
+        
+    }
+    
     func fetchMovies(){
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -108,5 +117,5 @@ class NowPlayingViewController: UICollectionViewController, UITableViewDataSourc
         }
         task.resume()
     }
-
+    
 }
